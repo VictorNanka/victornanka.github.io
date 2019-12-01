@@ -46,14 +46,17 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="技术 | SCP命令的使用以前一直都不知道这一命令的存在，舍近求远的在Linux服务器或远程机上配置ftp或smb服务器和客户端。实际上如果只需传输少量文件，使用scp命令就远远足够了。 SCP命令介绍  SCP (secure copy) is a command-line utility that allows you to securely copy files and directorie">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Nanka的小屋">
-<meta property="og:url" content="http:&#x2F;&#x2F;nanka.life&#x2F;archives&#x2F;2019&#x2F;11&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;nanka.life&#x2F;image&#x2F;15687881868987.html">
 <meta property="og:site_name" content="Nanka的小屋">
+<meta property="og:description" content="技术 | SCP命令的使用以前一直都不知道这一命令的存在，舍近求远的在Linux服务器或远程机上配置ftp或smb服务器和客户端。实际上如果只需传输少量文件，使用scp命令就远远足够了。 SCP命令介绍  SCP (secure copy) is a command-line utility that allows you to securely copy files and directorie">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-18T08:28:12.467Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://nanka.life/archives/2019/11/">
+<link rel="canonical" href="http://nanka.life/image/15687881868987">
 
 
 <script id="page-configurations">
@@ -62,12 +65,13 @@
     sidebar: "",
     isHome: false,
     isPost: false,
-    isPage: false,
-    isArchive: true
+    isPage: true,
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Nanka的小屋</title>
+  <title> | Nanka的小屋
+  </title>
   
 
 
@@ -157,53 +161,63 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="en">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 1 post. Keep on posting.</span>
-      </div>
+
+</div>
+
+</header>
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
+      
+      
+      <div class="post-body">
+          <h1 id="技术-SCP命令的使用"><a href="#技术-SCP命令的使用" class="headerlink" title="技术 | SCP命令的使用"></a>技术 | SCP命令的使用</h1><p><strong>以前一直都不知道这一命令的存在，舍近求远的在Linux服务器或远程机上配置ftp或smb服务器和客户端。实际上如果只需传输少量文件，使用scp命令就远远足够了。</strong></p>
+<h2 id="SCP命令介绍"><a href="#SCP命令介绍" class="headerlink" title="SCP命令介绍"></a>SCP命令介绍</h2><blockquote>
+<p> SCP (secure copy) is a command-line utility that allows you to securely copy files and directories between two locations.<br>With scp, you can copy a file or directory:<br>From your local system to a remote system.<br>From a remote system to your local system.<br>Between two remote systems from your local system.<br>When transferring data with scp, both the files and password are encrypted, so that anyone snooping on the traffic doesn’t get anything sensitive.</p>
+</blockquote>
+<blockquote>
+<p>SCP（安全拷贝）是一个命令行实用程序，允许您在两个位置之间安全地复制文件和目录。<br>使用scp，您可以复制文件或目录：<br>从本地系统到远程系统。<br>从远程系统到本地系统。<br>在本地系统的两个远程系统之间。<br>使用scp传输数据时，文件和密码都是加密的，因此任何窥探流量的人都不会得到任何敏感信息。</p>
+</blockquote>
+<h2 id="使用格式"><a href="#使用格式" class="headerlink" title="使用格式"></a>使用格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<ul>
+<li><code>OPTION</code> - scp options such as cipher, ssh configuration, ssh port, limit, recursive copy …etc.</li>
+<li><code>[user@]SRC_HOST:]file1</code> - Source file.</li>
+<li><code>[user@]DEST_HOST:]file2</code> - Destination file</li>
+</ul>
+<p><code>OPTION</code>的可选项目包括：<br><code>-P</code> Specifies the remote host ssh port. 自定义传送的端口<br><code>-p</code> Preserves files modification and access times. 保存文件修改时间<br><code>-q</code> Use this option if you want to suppress the progress meter and non-error messages. 安静模式，不输出非错误信息<br><code>-C</code> This option will force scp to compresses the data as it is sent to the destination machine. 强制传输数据压缩<br><code>-r</code> This option will tell scp to copy directories recursively. 递归传输整个目录</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~/Download/script.js pi@192.168.1.2:~/</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-15T17:11:44+08:00"
-              content="2019-11-15">
-          11-15
-        </time>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总之，<code>scp</code>是一个非常好用的命令！特别是上传一些小脚本运行时，不用傻乎乎的复制粘贴。<code>-r</code>选项也能复制整个目录十分有用。</p>
+
       </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/11/15/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-
+      
+      
+      
     </div>
+    
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -232,6 +246,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技术-SCP命令的使用"><span class="nav-number">1.</span> <span class="nav-text">技术 | SCP命令的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SCP命令介绍"><span class="nav-number">1.1.</span> <span class="nav-text">SCP命令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用格式"><span class="nav-number">1.2.</span> <span class="nav-text">使用格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-number">1.3.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -245,7 +260,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
