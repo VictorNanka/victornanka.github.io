@@ -6,10 +6,32 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nanka.life/"/>
-  <updated>2020-04-27T16:38:07.016Z</updated>
+  <updated>2020-05-01T12:34:07.656Z</updated>
   <id>http://nanka.life/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo 在 node 14 上报错的解决办法</title>
+    <link href="http://nanka.life/hexo-%E5%9C%A8-node-14-%E4%B8%8A%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://nanka.life/hexo-%E5%9C%A8-node-14-%E4%B8%8A%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
+    <published>2020-05-01T12:22:59.000Z</published>
+    <updated>2020-05-01T12:34:07.656Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hexo-在-node-14-上报错的解决办法"><a href="#hexo-在-node-14-上报错的解决办法" class="headerlink" title="hexo 在 node 14 上报错的解决办法"></a>hexo 在 node 14 上报错的解决办法</h1><p>这几天在macOS上用 brew 自动把 node 升级到 14.0.0 后发生了不兼容的情况</p><p>具体报错如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br><span class="line"></span><br><span class="line">(node:79614) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show where the warning was created)</span><br><span class="line">(node:79614) Warning: Accessing non-existent property 'column' of module exports inside circular dependency</span><br><span class="line">(node:79614) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency</span><br><span class="line">(node:79614) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency</span><br><span class="line">(node:79614) Warning: Accessing non-existent property 'column' of module exports inside circular dependency</span><br><span class="line">(node:79614) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency</span><br><span class="line">hexo: 4.2.0</span><br><span class="line">hexo-cli: 3.1.0</span><br><span class="line">os: Darwin 19.4.0 darwin x64</span><br><span class="line">node: 14.1.0</span><br><span class="line">v8: 8.1.307.31-node.32</span><br><span class="line">uv: 1.37.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.7</span><br><span class="line">ares: 1.16.0</span><br><span class="line">modules: 83</span><br><span class="line">nghttp2: 1.40.0</span><br><span class="line">napi: 6</span><br><span class="line">llhttp: 2.0.4</span><br><span class="line">openssl: 1.1.1g</span><br><span class="line">cldr: 36.1</span><br><span class="line">icu: 66.1</span><br><span class="line">tz: 2019c</span><br><span class="line">unicode: 13.0</span><br></pre></td></tr></table></figure><p>这种情况比较无奈，应该是部分依赖没有兼容最新版本的 node，最方便的解决办法就是下载指定低版本的 node，然后再暂时将其加入到 PATH 环境中再使用 hexo 。</p><p>具体如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install node@12</span><br><span class="line">export PATH="/usr/local/opt/node@12/bin:$PATH"</span><br></pre></td></tr></table></figure><p>运行 hexo 后一切正常。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;hexo-在-node-14-上报错的解决办法&quot;&gt;&lt;a href=&quot;#hexo-在-node-14-上报错的解决办法&quot; class=&quot;headerlink&quot; title=&quot;hexo 在 node 14 上报错的解决办法&quot;&gt;&lt;/a&gt;hexo 在 node 14 上报
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Command Line Heros 播客稿翻译计划</title>
