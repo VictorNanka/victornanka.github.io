@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nanka.life","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="悉知，本人纯粹出于个人学习技术和锻炼英语能力的动机翻译此作品，仅为学习和交流，该翻译没有获得 Redhat 授权。 OS Wars_par2 原稿 Saron Yitbarek: Is this thing on? Cue the epic Star Wars crawl, and, action. 战争还在继续吗？循着史诗般的《星球大战》的足迹，然后咱们继续。  Voice Actor: [0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Command Line Heroes 播客稿 OS Wars_part1 操作系统战争 part 2">
+<meta property="og:url" content="http://nanka.life/Command-Line-Heros-%E6%92%AD%E5%AE%A2%E7%A8%BF-OS-WAR-part2/index.html">
+<meta property="og:site_name" content="Nanka的blog">
+<meta property="og:description" content="悉知，本人纯粹出于个人学习技术和锻炼英语能力的动机翻译此作品，仅为学习和交流，该翻译没有获得 Redhat 授权。 OS Wars_par2 原稿 Saron Yitbarek: Is this thing on? Cue the epic Star Wars crawl, and, action. 战争还在继续吗？循着史诗般的《星球大战》的足迹，然后咱们继续。  Voice Actor: [0">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://nanka.life/image/OsWars.png">
+<meta property="article:published_time" content="2020-05-03T13:38:18.000Z">
+<meta property="article:modified_time" content="2020-05-03T14:58:21.967Z">
+<meta property="article:tag" content="Command Line Heros">
+<meta property="article:tag" content="翻译">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://nanka.life/image/OsWars.png">
+
+<link rel="canonical" href="http://nanka.life/Command-Line-Heros-%E6%92%AD%E5%AE%A2%E7%A8%BF-OS-WAR-part2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Command Line Heroes 播客稿 OS Wars_part1 操作系统战争 part 2 | Nanka的blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Nanka的blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nanka的blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/VictorNanka" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://nanka.life/Command-Line-Heros-%E6%92%AD%E5%AE%A2%E7%A8%BF-OS-WAR-part2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nanka的blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Command Line Heroes 播客稿 OS Wars_part1 操作系统战争 part 2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-03 21:38:18 / Modified: 22:58:21" itemprop="dateCreated datePublished" datetime="2020-05-03T21:38:18+08:00">2020-05-03</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/Command-Line-Heros-%E6%92%AD%E5%AE%A2%E7%A8%BF-OS-WAR-part2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Command-Line-Heros-播客稿-OS-WAR-part2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="/image/OsWars.png" alt="OsWars"></p>
+<p><strong>悉知，本人纯粹出于个人学习技术和锻炼英语能力的动机翻译此作品，仅为学习和交流，该翻译没有获得 Redhat 授权。</strong></p>
+<p><a href="https://www.redhat.com/en/command-line-heroes/season-1/os-wars-part-2-rise-of-linux#tab.show_info.1" target="_blank" rel="noopener">OS Wars_par2 原稿</a></p>
+<p>Saron Yitbarek:</p>
+<p>Is this thing on? Cue the epic Star Wars crawl, and, action.</p>
+<p>战争还在继续吗？循着史诗般的《星球大战》的足迹，然后咱们继续。</p>
+<hr>
+<p>Voice Actor:</p>
+<p>[00:00:30]</p>
+<p>Episode Two: Rise of Linux ® . The empire of Microsoft controls 90 % of desktop users . Complete standardization of operating systems seems assured. However, the advent of the internet swerves the focus of the war from the desktop toward enterprise, where all businesses scramble to claim a server of their own. Meanwhile, an unlikely hero arises from amongst the band of open source rebels . Linus Torvalds, head strong, bespectacled, releases his Linux system free of charge. Microsoft reels — and regroups.</p>
+<p>第二集: 崛起的Linux ® . 微软帝国控制了90％的桌面用户。操作系统的完全标准化似乎已经有了保证。<br> […]  然而，互联网的出现，将战争的焦点从台式机转到了企业级，所有的企业都在争先恐后的争夺自己的服务器。与此同时，一个不可能的英雄从开源反叛者中脱颖而出。Linus Torvalds，强壮的头顶，戴着眼镜，免费发布了他的 Linux 系统。微软的反击–并重新组织起来。 </p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:01:00]</p>
+<p>Oh, the nerd in me just loves that. So, where were we? Last time, Apple and Microsoft were trading blows, trying to dominate in a war over desktop users. By the end of episode one, we saw Microsoft claiming most of the prize. Soon, the entire landscape went through a seismic upheaval. That’s all because of the rise of the internet and the army of developers that rose with it. The internet moves the battlefield from PC users in their home offices to giant business clients with hundreds of servers.</p>
+<p>哦，我这个书呆子就是喜欢这个。那么，我们说到哪里了？上一次，苹果和微软在交易打击，试图在桌面用户的战争中占据主导地位。在这一集结束时，我们看到微软占据了大部分战利品。很快，整个格局经历了一场地震式的动荡。这都是由于互联网的兴起，以及随之崛起的开发者大军。互联网将战场从家庭办公室里的PC用户转移到了拥有数百台服务器的巨型企业客户。</p>
+<hr>
+<p>[00:01:30]</p>
+<p>This is a huge resource shift. Not only does every company out there wanting to remain relevant suddenly have to pay for server space and get a website built — they also have to integrate software to track resources, monitor databases, et cetera, et cetera. You’re going to need a lot of developers to help you with that. At least, back then you did.</p>
+<p>这是一个巨大的资源转移。不仅仅是每一个想保持相关的公司突然间要支付服务器空间和建立网站，他们还必须整合软件来跟踪资源，监控数据库，等等，等等。你将需要很多开发人员来帮助你完成这些工作。至少，当时你是这样做的。</p>
+<hr>
+<p>In part two of the OS wars, we’ll see how that enormous shift in priorities ,  and the work of a few open source rebels like Linus Torvalds and Richard Stallman ,  managed to strike fear in the heart of Microsoft, and an entire software industry.</p>
+<p>在操作系统战争的第二部分中，我们将看到优先级的巨大转变，以及像Linus Torvalds和Richard Stallman这样的少数开源反叛者的工作，是如何在微软和整个软件行业的心中造成恐惧的。</p>
+<hr>
+<p>[00:02:00]</p>
+<p>I’m Saron Yitbarek and you’re listening to Command Line Heroes, an original podcast from Red Hat. In each episode, we’re bringing you stories about the people who transform technology from the command line up.</p>
+<p>我是 Saron Yitbarek，您现在收听的是红帽公司的原创播客《命令行英雄》。在每期节目中，我们将为您带来关于commandline上的技术变革者的故事。</p>
+<hr>
+<p>[00:02:30]</p>
+<p>Okay. Imagine for a second that you’re Microsoft in 1991. You’re feeling pretty good, right? Pretty confident. Assured global domination feels nice. You’ve mastered the art of partnering with other businesses, but you’re still pretty much cutting out the developers, programmers, and sys admins that are the real foot soldiers out there. There is this Finnish geek named Linus Torvalds. He and his team of open source programmers are starting to put out versions of Linux, this OS kernel that they’re duct taping together.</p>
+<p>好吧，想象一下，你是1991年的微软公司。你感觉很好，对吧？很有信心。稳居全球第一的感觉很好 你已经掌握了与其他企业合作的技巧 但你还是把开发人员、程序员和系统管理员排除在外 真正的脚踏实地的人都排除在外了 有一位芬兰的极客叫Linus Torvalds。他和他的开源程序员团队开始推出Linux的版本，这个操作系统的内核，他们用胶带粘在一起。 </p>
+<hr>
+<p>[00:03:00]</p>
+<p>If you’re Microsoft, frankly, you’re not too concerned about Linux or even about open source in general, but eventually, the sheer size of Linux gets so big that it becomes impossible for Microsoft not to notice. The first version comes out in 1991 and it’s got maybe 10,000 lines of code. A decade later, there will be three million lines of code. In case you’re wondering, today it’s at 20 million.</p>
+<p>如果你是微软，老实说，你对Linux甚至一般的开放源码都不会太在意，但最终，Linux的规模越来越大，以至于微软不可能不注意到。1991年第一个版本出来的时候，它的代码大概有一万行。10年后的今天，它的代码就有300万行。如果你想知道的话，今天已经达到了2000万行。 </p>
+<hr>
+<p>[00:03:30]</p>
+<p>For a moment, let’s stay in the early 90s. Linux hasn’t yet become the behemoth we know now. It’s just this strangely viral OS that’s creeping across the planet, and the geeks and hackers of the world are falling in love with it. I was too young in those early days, but I sort of wish I’d been there. At that time, discovering Linux was like gaining access to a secret society. Programmers would share the Linux CD set with friends the same way other people would share mixtapes of underground music.</p>
+<p>暂时让我们停留在90年代初。Linux还没有成为我们现在所知道的庞然大物。它只是一个奇怪的病毒式操作系统，在这个星球上蔓延，全世界的极客和黑客们都爱上了它。那时候的我还太年轻，但我有点希望自己也在那里。在那个时候，发现Linux就像进入了一个秘密组织。程序员们会和朋友们分享Linux的CD集，就像其他人分享地下音乐的mixtape一样。</p>
+<hr>
+<p>Developer Tristram Oaten [00:03:40] tells the story of how he first encountered Linux when he was 16 years old.</p>
+<p>开发者 Tristram Oaten 讲述了他16岁时第一次接触Linux的故事。</p>
+<hr>
+<p>Tristram Oaten:</p>
+<p>[00:04:00]</p>
+<p>We went on a scuba diving holiday, my family and I, to Hurghada, which is on the Red Sea. Beautiful place, highly recommend it. The first day, I drank the tap water. Probably, my mom told me not to. I was really sick the whole week — didn’t leave the hotel room. All I had with me was a laptop with a fresh install of Slackware Linux, this thing that I’d heard about and was giving it a try. There were no extra apps, just what came on the eight CDs. By necessity, all I had to do this whole week was to get to grips with this alien system. I read man pages, played around with the terminal. I remember not knowing the difference between a single dot, meaning the current directory, and two dots, meaning the previous directory.</p>
+<p>我和我的家人去红海上的胡尔格达潜水度假。美丽的地方，强烈推荐。第一天，我喝了自来水。可能是，我妈妈叫我不要喝。整个星期，我真的病了–没离开酒店房间。我带着的只是一台笔记本电脑，新安装了 Slackware Linux ，这是我听说过的东西，正想试一试。没有额外的应用程序，只有八张光盘上的东西。出于无奈，我这一周要做的就是熟悉这个陌生的系统。我看了一些网页，玩了一下终端。我记得当时我不知道单点和双点的区别，单点是指当前目录，双点是指以前的目录。</p>
+<hr>
+<p>[00:04:30]</p>
+<p>I had no clue. I must have made so many mistakes, but slowly, over the course of this forcible solitude, I broke through this barrier and started to understand and figure out what this command line thing was all about. By the end of the holiday, I hadn’t seen the pyramids, the Nile, or any Egyptian sites, but I had unlocked one of the wonders of the modern world. I’d unlocked Linux, and the rest is history.</p>
+<p>我当时没有任何头绪。我一定是犯了很多错误，但慢慢地，在这强行的孤独中，我突破了这个障碍，开始了解和弄清楚了这个命令行的事情是怎么回事。假期结束的时候，我还没有看到金字塔、尼罗河、埃及遗址，但我已经解开了现代世界的一个奇迹。我已经解锁了 Linux，剩下的就是历史了。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>You can hear some variation on that story from a lot of people. Getting access to that Linux command line was a transformative experience.</p>
+<p>你可以从很多人的口中听到这个故事的一些变种。进入 Linux 命令行是一个转变的经历。</p>
+<hr>
+<p>[00:05:00]</p>
+<p>David Cantrell:</p>
+<p>This thing gave me the source code. I was like, “That’s amazing.”</p>
+<p>这个系统给了我它的源码，这实在是太棒了！</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>We’re at a 2017 Linux developers conference called Flock to Fedora.</p>
+<p>我们正在参加一个名为 Flock to Fedora 的2017年 Linux 开发者大会。</p>
+<hr>
+<p>David Cantrell:</p>
+<p>… very appealing. I felt like I had more control over the system and it just drew me in more and more. From there, I guess, after my first Linux kernel compile in 1995, I was hooked, so, yeah.</p>
+<p>…非常吸引人。我觉得我对系统有了更多的控制权，它吸引了我越来越多。从那时候开始，我想，在1995年我第一次编译 Linux 内核之后，我就迷上了，所以，是的。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>Developers David Cantrell and Joe Brockmire.</p>
+<p>开发者 David Cantrell and Joe Brockmire 。</p>
+<hr>
+<p>[00:05:30]</p>
+<p>Joe Brockmeier:</p>
+<p>I was going through the cheap software and found a four - CD set of Slackware Linux. It sounded really exciting and interesting so I took it home, installed it on a second computer, started playing with it, and really got excited about two things. One was, I was excited not to be running Windows, and I was excited by the open source nature of Linux.</p>
+<p>我在翻看廉价软件的时候，发现了一套四张光盘的 Slackware Linux。它听起来真的很令人兴奋和有趣，于是我把它带回家，在第二台电脑上安装了它，开始玩它，真的有两件事让我很兴奋。一个是，我很兴奋，因为我没有运行Windows ，而 Linux 的开源特性让我很兴奋。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:06:00]</p>
+<p>That access to the command line was, in some ways, always there. Decades before open source really took off, there was always a desire to have complete control, at least among developers. Go way back to a time before the OS wars, before Apple and Microsoft were fighting over their GUIs. There were command line heroes then, too. Professor Paul Jones is the director of the online library ibiblio.org. He worked as a developer during those early days.</p>
+<p>从某种程度上说，这种对命令行的访问权一直都是存在的。在开放源码真正兴起之前的几十年，人们总是希望拥有完全的控制权，至少在开发者中是如此。回溯到操作系统战争之前的年代，在苹果和微软争夺GUI之前。那时也有命令行英雄。Paul Jones 教授是在线图书馆 ibibiblio.org 的主任。在那段早期的日子里，他曾是一名开发者。</p>
+<hr>
+<p>Paul Jones:</p>
+<p>[00:06:30]</p>
+<p>[00:07:00]</p>
+<p>The internet, by its nature, at that time, was less client server, totally, and more peer to peer. We’re talking about, really, some sort of VAX to VAX, some sort of scientific workstation, the scientific workstation. That doesn’t mean that client and server relationships and applications weren’t there, but it does mean that the original design was to think of how to do peer - to - peer things, the opposite of what IBM had been doing, in which they had dumb terminals that had only enough intelligence to manage the user interface, but not enough intelligence to actually let you do anything in the terminal that would expose anything to it.</p>
+<p>就其性质而言，当时的 Internet 完全是较少的客户端服务器，而更多地是点对点的。我们实际上是在谈论某种 VAX 到 VAX，某种科学工作站，科学工作站。这并不意味着客户与服务器之间的关系和应用程序就不存在了，而是意味着原始设计是在考虑如何做点对点的事情，这与 IBM 所做的相反。他们有笨拙的终端，这些终端仅具有足够的智能来管理用户界面，而实际上却没有足够的智能来让您在终端中执行任何可能向其公开任何内容的操作。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>As popular as GUI was becoming among casual users, there was always a pull in the opposite direction for the engineers and developers. Before Linux in the 1970s and 80s, that resistance was there, with EMAX and GNU . W ith Stallman’s free software foundation, certain folks were always begging for access to the command line, but it was Linux in the 1990s that delivered like no other.</p>
+<p>尽管GUI在休闲用户中越来越流行，但对于工程师和开发者来说，总是有一种相反的阻力。在20世纪70-80年代的 Linux 之前，这种阻力是存在的，有了EMAX和GNU，在 Stallman 的自由软件基础上，某些人总是在乞求使用命令行，但90年代的 Linux 才是独一无二的。</p>
+<hr>
+<p>[00:07:30]</p>
+<p>The early lovers of Linux and other open source software were pioneers. I’m standing on their shoulders. We all are.</p>
+<p>Linux和其他开源软件的早期爱好者是先驱者。我站在他们的肩膀上。我们都是。</p>
+<hr>
+<p>Steven Vaughan-Nichols:</p>
+<p>By 1998, things have changed.</p>
+<p>到1998年，事情发生了改变。</p>
+<hr>
+<p>[00:08:00]</p>
+<p>Saron Yitbarek:</p>
+<p>Steven Vaughan-Nichols is a contributing editor at zdnet.com, and he’s been writing for decades about the business side of technology. He describes how Linux slowly became more and more popular until the number of volunteer contributors was way larger than the number of Microsoft developers working on Windows. Linux never really went after Microsoft’s desktop customers, though, and maybe that’s why Microsoft ignored them at first. Where Linux did shine was in the server room. When businesses went online, each one required a unique programming solution for their needs.</p>
+<p>Steven Vaughan-Nichols 是 zdnet.com 的特约编辑，几十年来他一直在写关于技术的商业方面的文章。他描述了Linux是如何慢慢地变得越来越受欢迎，直到志愿者贡献者的数量远远超过了在Windows上工作的微软开发人员的数量。不过，Linux 从来没有真正去追求微软的桌面客户，也许这也是微软一开始忽视他们的原因。Linux 确实在服务器机房中大放异彩。当企业上线时，每个企业都需要一个独特的编程解决方案来满足他们的需求。</p>
+<hr>
+<p>[00:08:30]</p>
+<p>Windows NT comes out in 1993 and it’s competing with other server operating systems, but lots of developers are thinking, “Why am I going to buy an AIX box or a large windows box when I could set up a cheap Linux-based system with Apache?” Point is, Linux code started seeping into just about everything online.</p>
+<p>1993年，Windows NT 出来了，它与其他服务器操作系统竞争，但很多开发者都在想，”当我可以用Apache建立一个基于 Linux 的廉价系统时，我为什么要买一个AIX盒子或大型windows盒子？” 关键是，Linux的代码开始渗入到几乎所有在线的东西中。</p>
+<hr>
+<p>Steven Vaughan-Nichols:</p>
+<p>[00:09:00]</p>
+<p>Microsoft realizes that Linux, quite to their surprise, is actually beginning to get some of the business, not so much on the desktop, but on business servers. As a result of that, they start a campaign, what we like to call FUD — fear, uncertainty and doubt — saying, “Oh this Linux stuff, it’s really not that good. It’s not very reliable. You can’t trust it with anything.”</p>
+<p>微软意识到，出乎他们意料的是，Linux 实际上已经开始获得了一些业务，不是在桌面上，而是在商业服务器上。结果，他们开始了一场运动，也就是我们喜欢称之为FUD的运动–恐惧、不确定性和怀疑–说：”哦，这个 Linux 的东西，真的没那么好。它不是很可靠。你不能相信它的任何东西。” </p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:09:30]</p>
+<p>That soft propaganda style attack goes on for a while. Microsoft wasn’t the only one getting nervous about Linux, either. It was really a whole industry versus that weird new guy. For example, anyone with a stake in UNIX was likely to see Linux as a usurper. Famously, the SCO Group, which had produced a version of UNIX, waged lawsuits for over a decade to try and stop the spread of Linux. SCO ultimately failed and went bankrupt. Meanwhile, Microsoft kept searching for their opening. They were a company that needed to make a move. It just wasn’t clear what that move was going to be.</p>
+<p>这种软宣传式的攻击持续了一段时间。微软也不是唯一一个对 Linux 感到紧张的人。这真的是整个行业与那个奇怪的新家伙的对抗。例如，任何与 UNIX 有利害关系的人都会把 Linux 看作是篡夺者。著名的是，曾经生产过 UNIX 版本的 SCO 集团，为了阻止 Linux 的传播，打了十几年的官司。SCO 最终以失败而破产。与此同时，微软不断地寻找着自己的破绽。他们是一家需要采取行动的公司。只是还不清楚该怎么做。 </p>
+<hr>
+<p>[00:10:00]</p>
+<p>Steven Vaughan-Nichols:</p>
+<p>[00:10:30]</p>
+<p>What will make Microsoft really concerned about it is the next year, in 2000, IBM will announce that they will invest a billion dollars in Linux in 2001. Now, IBM is not really in the PC business anymore. They’re not out yet, but they’re going in that direction, but what they are doing is they see Linux as being the future of servers and mainframe computers, which, spoiler alert, IBM was correct. Linux is going to dominate the server world.</p>
+<p>让微软真正关心的是，明年，也就是2000年，IBM 将宣布在2001年投资10亿美金给 Linux。现在，IBM 已经不是真正意义上的PC业务了。他们还没有出来，但他们正在往这个方向发展，但他们要做的是，他们把 Linux 看成是服务器和大型机的未来，这一点，搅局者提醒，IBM是正确的。Linux 将主宰服务器世界。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>This was no longer just about a bunch of hackers loving their Jedi-like control of the command line. This was about the money side working in Linux’s favor in a major way. John “Mad Dog” Hall, the executive director of Linux International, has a story that explains why that was. We reached him by phone.</p>
+<p>这不再只是一群黑客们喜欢上了他们的绝地武士般的控制命令行。这是关于金钱的一面在很大程度上对 Linux 有利。John “Mad Dog” Hall，Linux国际的执行董事，有一个故事可以解释为什么会这样。我们通过电话联系了他。 </p>
+<hr>
+<p>[00:11:00]</p>
+<p>John Hall:</p>
+<p>[00:11:30]</p>
+<p>A friend of mine named Dirk Holden was a German systems administrator at Deutsche Bank in Germany, and he also worked in the graphics projects for the early days of the X Windows system for PCs. I visited him one day at the bank, and I said, “Dirk, you have 3,000 servers here at the bank and you use Linux. Why don’t you use Microsoft NT?” He looked at me and he said, “Yes, I have 3,000 servers ,  and if I used Microsoft Windows NT, I would need 2,999 systems administrators.” He says, “With Linux, I only need four.” That was the perfect answer.</p>
+<p>我的一个朋友叫 Dirk Holden 他是德国德意志银行的系统管理员，他也是在早期的X Windows 系统的PC的图形项目中工作。有一天我去银行拜访他，我说：”Dirk，你在银行这里有3000台服务器，你用的是Linux。你为什么不用微软的NT系统？” 他看着我，他说：”是的，我有3000台服务器，如果用微软的Windows NT，我需要2999个系统管理员。” 他说，”用Linux，我只需要四个。” 这是一个完美的答案。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:12:00]</p>
+<p>The thing programmers are getting obsessed with also happens to be deeply attractive to big business. Some businesses were wary. The FUD was having an effect. They heard open source and thought, “Open. That doesn’t sound solid. It’s going to be chaotic, full of bugs,” but as that bank manager pointed out, money has a funny way of convincing people to get over their hangups. Even little businesses, all of which needed websites, were coming on board. The cost of working with a cheap Linux system over some expensive proprietary option, there was really no comparison. If you were a shop hiring a pro to build your website, you wanted them to use Linux.</p>
+<p>程序员迷恋的东西，也恰好对大企业有着深深的吸引力。一些企业对其产生了警惕。FUD 正在产生影响。他们听到开源，就想，”开放。这听起来并不牢固。会很混乱，充满了 bug。”但正如那位银行经理所指出的，金钱有一种有趣的方式来说服人们克服自己的疑虑。就连一些小企业，都需要网站，都纷纷上马。使用廉价的 Linux 系统比起一些昂贵的专有选项，使用廉价的Linux系统工作的成本，真的是没有可比性。如果你是一个商店雇用专业人员来建立网站，你希望他们使用 Linux 系统。</p>
+<hr>
+<p>[00:12:30]</p>
+<p>Fast forward a few years. Linux runs everybody’s website. Linux has conquered the server world, and then, along comes the smartphone. Apple and their iPhones take a sizeable share of the market, of course, and Microsoft hoped to get in on that, except, surprise, Linux was there, too, ready and raring to go.</p>
+<p>快进几年。Linux 运行着每个人的网站。Linux 征服了服务器世界，然后，智能手机出现了。当然，苹果和他们的 iPhone 占据了相当大的市场份额，而微软也希望能加入其中，只是，令人惊讶的是，Linux 也在那里，准备好了，并准备好了，准备好了，准备好了。 </p>
+<hr>
+<p>Author and journalist James Allworth.</p>
+<p>作家、记者James Allworth。</p>
+<p>James Allworth:</p>
+<p>[00:13:00]</p>
+<p>There was certainly room for a second player, and that could well have been Microsoft, but for the fact of Android, which was fundamentally based on Linux, and because Android, famously acquired by Google, and now running a majority of the world’s smartphones, Google built it on top of that. They were able to start with a very sophisticated operating system and a cost basis of zero. They managed to pull it off, and it ended up locking Microsoft out of the next generation of devices, by and large, at least from an operating system perspective.</p>
+<p>当然还有第二位玩家的空间，那很有可能是微软，但由于安卓系统从根本上来说是基于 Linux 的事实，而且由于安卓系统，众所周知已被谷歌收购，现在运行在全球大部分的智能手机，谷歌在此基础上建立了安卓系统。他们能够从一个非常成熟的操作系统和零成本的基础上，开始做起。他们成功地做到了这一点，并且最终将微软锁定在了下一代设备之外，至少从操作系统的角度来看，至少从大体上来说，是如此。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:13:30]</p>
+<p>The ground was breaking up, big time, and Microsoft was in danger of falling into the cracks. John Gossman is the chief architect on the Azure team at Microsoft. He remembers the confusion that gripped the company at that time.</p>
+<p>大地裂开了，大地裂开了，微软也面临着掉进裂缝的危险。John Gossman是微软Azure团队的首席架构师。他还记得当时困扰公司的混乱局面。</p>
+<hr>
+<p>John Gossman:</p>
+<p>[00:14:00]</p>
+<p>Like a lot of companies, Microsoft was very concerned about IP pollution. They thought that if you let developers use open source they would likely just copy and paste bits of code into some product and then some sort of a viral license might take effect that … They were also very confused, I think, it was just culturally, a lot of companies, Microsoft included, were confused on the difference between what open source development meant and what the business model was. There was this idea that open source meant that all your software was free and people were never going to pay anything.</p>
+<p>和很多公司一样，微软也非常担心知识产权污染问题。他们认为，如果你让开发者使用开放源码，他们很可能只是复制并粘贴一些代码到一些产品中，然后可能会有一些病毒性的许可，然后就会产生一些病毒性的许可，这就会….. 他们也很困惑，我想，这只是文化上的问题，很多公司，包括微软在内，都对开源开发和商业模式的区别感到困惑。有一种观念认为，开源意味着你的软件都是免费的，人们永远不会支付任何费用。 </p>
+<hr>
+<p>Saron Yitbarek: </p>
+<p>[00:14:30]</p>
+<p>Anybody invested in the old, proprietary model of software is going to feel threatened by what’s happening here. When you threaten an enormous company like Microsoft, yeah, you can bet they’re going to react. It makes sense they were pushing all that FUD — fear, uncertainty and doubt. At the time, an “ us versus them ”  attitude was pretty much how business worked. If they’d been any other company, though, they might have kept that old grudge, that old thinking, but then, in 2013, everything changes.</p>
+<p>任何投资于旧的、专有的软件模式的人都会感觉到被这里发生的事情所威胁。当你威胁到微软这样的大公司时，是的，你可以打赌，他们一定会做出反应。这就说明了他们在推动所有的FUD–恐惧、不确定性和怀疑。当时，一个 “我们与他们 “的态度是相当多的业务工作。如果他们是任何其他公司，虽然，他们可能会保持旧的怨恨，旧的思维，但是，在2013年，一切都变了。</p>
+<hr>
+<p>[00:15:00]</p>
+<p>Microsoft’s cloud computing service, Azure, goes online and, shockingly, it offers Linux virtual machines from day one. Steve Ballmer, the CEO who called Linux a cancer, he’s out, and a new forward - thinking CEO, Satya Nadella, has been brought in.</p>
+<p>微软的云计算服务Azure上线，令人震惊的是，它从第一天起就提供Linux虚拟机。史蒂夫-鲍尔默(Steve Ballmer)，这位曾将Linux称为毒瘤的CEO出局了，新的前瞻性思维的CEO萨蒂亚-纳德拉(Satya Nadella)也来了。 </p>
+<hr>
+<p>John Gossman:</p>
+<p>Satya has a different attitude. He’s another generation. He’s a generation younger than Paul and Bill and Steve were, and had a different perspective on open source.</p>
+<p>萨蒂亚的态度不一样。他是另一个时代的人。他比 Paul 和 Bill 和 Steve 年轻一代，对开源有不同的看法。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>John Gossman, again, from Microsoft’s Azure team.</p>
+<p>John Gossman，同样，来自微软Azure团队。</p>
+<p>John Gossman:</p>
+<p>[00:15:30]<br>[00:16:00]</p>
+<p>We added Linux support into Azure about four years ago, and that was for very pragmatic reasons. If you go to any enterprise customer, you will find that they are not trying to decide whether to use Windows or to use Linux or to use .net or to use Java TM . They made all those decisions a long time ago — about 15 years or so ago, there was some of this argument. Now, every company that I have ever seen has a mix of Linux and Java and Windows and .net and SQL Server and Oracle and MySQL — proprietary source code - based products and open source code products.</p>
+<p>大约四年前，我们将 Linux 支持添加到 Azure 中，那是出于非常务实的原因。如果你去找任何一个企业客户，你会发现，他们并不是试图决定是使用 Windows 还是使用 Linux，还是使用.net还是使用 Java TM 。他们在很早以前就做出了这些决定—-大约在15年左右的时候，还存在一些这样的争论。现在，我见过的每一家公司都有 Linux 和 Java 和 Windows 和 .net、SQL Server 和 Oracle 和 MySQL 的混合产品–基于专有源代码–的产品和开放源代码的产品。</p>
+<hr>
+<p>If you’re going to operate a cloud and you’re going to allow and enable those companies to run their businesses on the cloud, you simply cannot tell them, “You can use this software but you can’t use this software.”</p>
+<p>如果你要运营云，你要允许并让这些企业在云上运行业务，你根本不能告诉他们，”你可以用这个软件，但不能用这个软件。”</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:16:30]</p>
+<p>That’s exactly the philosophy that Satya Nadella adopted. In the fall of 2014, he gets up on stage and he wants to get across one big, fat point. Microsoft loves Linux. He goes on to say that 20 % of Azure is already Linux and that Microsoft will always have first - class support for Linux distros. There’s not even a whiff of that old antagonism toward open source.</p>
+<p>这正是萨特亚-纳德拉所采用的理念。2014年秋天的时候，他站在台上，他想通过一个大而化之的观点。微软爱 Linux 。他接着说，Azure 的20%已经是 Linux ，微软将永远为 Linux 发行版提供一流的支持。他甚至没有一丝对开源的老对立情绪。</p>
+<hr>
+<p>To drive the point home, there’s literally a giant sign behind them that reads, “Microsoft hearts Linux.” Aww. For some of us, that turnaround was a bit of a shock, but really, it shouldn’t have been. Here’s Steven Levy, a tech journalist and author.</p>
+<p>为了让大家明白这一点，在他们身后有一个巨大的牌子，上面写着：”微软心系Linux “ 啊。对我们中的一些人来说，这个转折是有点震惊，但实际上，它不应该是。来自 Steven Levy，一位科技记者和作者。 </p>
+<hr>
+<p>[00:17:00]</p>
+<p>Steven Levy:</p>
+<p>[00:17:30]</p>
+<p>When you’re playing a football game and the turf becomes really slick, maybe you switch to a different kind of footwear in order to play on that turf. That’s what they were doing. They can’t deny reality and there are smart people there so they had to realize that this is the way the world is and put aside what they said earlier, even though they might be a little embarrassed at their earlier statements, but it would be crazy to let their statements about how horrible open source was earlier, affect their smart decisions now.</p>
+<p>当你在踢足球比赛时，草皮变得很滑，也许你就会换上不同的鞋类，以便在那块草皮上踢球。这就是他们所做的事情。他们无法否认现实，而且还有聪明人在，所以他们不得不意识到这个世界就是这样，所以他们不得不放下之前的言论，尽管他们可能会对自己之前的言论有些尴尬，但如果让他们之前关于开源有多可怕的言论影响到现在的聪明决定，那就太疯狂了。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:18:00]</p>
+<p>Microsoft swallowed its  pride in a big way. You might remember that Apple, after years of splendid isolation, finally shifted toward a partnership with Microsoft. Now it was Microsoft’s turn to do a 180. After years of battling the open source approach, they were reinventing themselves. It was change or perish. Steven Vaughan-Nichols.</p>
+<p>微软大度地吞下了自己的骄傲。你可能还记得，苹果在经历了多年的辉煌孤立后，终于转向与微软的合作关系。现在轮到微软来个180度大转弯了。在与开源方式对抗多年后，他们正在重塑自己。这就是改变或灭亡。Steven Vaughan-Nichols。</p>
+<hr>
+<p>Steven Vaughan-Nichols:</p>
+<p>[00:18:30]</p>
+<p>Even a company the size of Microsoft simply can’t compete with the thousands of open source developers working on all these other major projects ,  including Linux. They were very loath e  to do so for a long time. The former Microsoft CEO, Steve Ballmer, hated Linux with a passion. Because of its GPL license, it was a cancer, but once Ballmer was finally shown the door, the new Microsoft leadership said, “This is like trying to order the tide to stop coming in. The tide is going to keep coming in. We should work with Linux, not against it.”</p>
+<p>即使是微软这样规模的公司，也无法与成千上万的开源开发者在包括Linux在内的所有其他主要项目中竞争。在很长一段时间内，他们都非常不愿意这样做。微软前CEO史蒂夫-鲍尔默（Steve Ballmer）对 Linux 恨之入骨。因为 GPL 授权，它是一个毒瘤，但一旦鲍尔默终于被送出了大门，微软的新领导层就说：”这就像试图命令潮水停止涌入。潮水会继续涌入。我们应该与 Linux 合作，而不是反对它。”</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:19:00]</p>
+<p>Really, one of the big wins in the history of online tech is the way Microsoft was able to make this pivot, when they finally decided to. Of course, older, hardcore Linux supporters were pretty skeptical when Microsoft showed up at the open source table. They weren’t sure if they could embrace these guys, but, as Vaughan-Nichols points out, today’s Microsoft simply is not your mom and dad’s Microsoft.</p>
+<p>真的，在线科技史上的一个大赢家就是微软最终决定要做这个支点的时候，他们能够做出这样的决定。当然，当微软出现在开放源码的谈判桌上时，年长的、铁杆的 Linux 支持者们是相当怀疑的。他们不确定自己是否能够拥抱这些家伙，但是，正如 Vaughan-Nichols 指出的那样，今天的微软根本不是你爸爸妈妈的微软。 </p>
+<hr>
+<p>Steven Vaughan-Nichols :</p>
+<p>[00:19:30]</p>
+<p>Microsoft 2017 is not Steve Ballmer’s Microsoft, nor is it Bill Gates’ Microsoft. It’s an entirely different company with a very different approach and, again, once you start using open source, it’s not like you can really pull back.   Open source has devoured the entire technology world. People who have never heard of Linux as such, don’t know it, but every time they’re on Facebook ,  they’re running Linux. Every time you do a Google search ,  you’re running Linux.</p>
+<p>2017年的微软不是史蒂夫-鲍尔默的微软，也不是比尔-盖茨的微软。这是一家完全不同的公司，它的做法也完全不同，同样，一旦开始使用开源，你就会发现你并不是真的可以退缩。  开源已经吞噬了整个科技世界。从没听说过 Linux 的人不知道，但每次上 Facebook 的时候，他们都在运行 Linux 。每当你在 Google 上做一次搜索，你就在运行 Linux 。</p>
+<hr>
+<p>[00:20:00]</p>
+<p>Every time you do anything with your Android phone ,  you’re running Linux again. It literally is everywhere, and Microsoft can’t stop that, and thinking that Microsoft can somehow take it all over, I think is naïve.</p>
+<p>每当你用你的Android手机做任何事情的时候，你又在运行 Linux 。它简直是无处不在，而微软无法阻止这一点，认为微软可以以某种方式把它完全接管，我认为这是 naïve 。 </p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:20:30]</p>
+<p>Open source supporters might have been worrying about Microsoft coming in like a wolf in the flock, but the truth is, the very nature of open source software protects it from total domination. No single company can own Linux and control it in any specific way. Greg Kroah-Hartman is a fellow at the Linux Foundation.</p>
+<p>开源的支持者可能一直担心微软会像狼群一样冲进来，但事实是，开源软件的本质保护了它不会被完全统治。没有一家公司可以拥有 Linux 并以任何特定的方式控制它。Greg Kroah-Hartman是 Linux 基金会的研究员。</p>
+<hr>
+<p>Greg Kroah-Hartman:</p>
+<p>Every company and every individual contributes to Linux in a selfish manner. They’re doing so because they want to solve a problem that they have, be it hardware isn’t working ,  or they want to add a new feature to do something else ,  or want to take it in a direction that they’ll build that they can use for their product. That’s great, because then everybody benefits from that because they’re releasing the code back, so that everybody can use it. It’s because of that selfishness that all companies and all people have, everybody benefits.</p>
+<p>每个公司和每个人都以一种自私的方式为Linux做出贡献。他们这样做是因为他们想解决自己的问题，不管是硬件不能用，还是想增加一个新的功能来做其他的事情，或者想把它往一个方向发展，让他们的产品可以用在他们的产品上。这很好，因为每个人都能从中受益，因为他们把代码放回去，让大家都能使用。正是因为所有公司和所有的人都有这样的自私，所以每个人都会受益。 </p>
+<hr>
+<p>[00:21:00]</p>
+<p>Saron Yitbarek: </p>
+<p>[00:21:30]</p>
+<p>Microsoft has realized that in the coming cloud wars, fighting Linux would be like going to war with, well, a cloud. Linux and open source aren’t the enemy, they’re the atmosphere. Today, Microsoft has joined the Linux Foundation as a platinum member. They became the number one contributor to open source on GitHub. In September, 2017, they even joined the Open Source Initiative. These days, Microsoft releases a lot of its code under open licenses. Microsoft’s John Gossman describes what happened when they open sourced .net. At first, they didn’t really think they’d get much back.</p>
+<p>微软已经意识到，在即将到来的云计算战争中，与Linux打仗就像与云计算打仗一样，嗯，云计算。Linux 和开源不是敌人，而是气氛。如今，微软已经加入了Linux基金会，成为了白金会员。他们成为了 GitHub 上开源的第一贡献者。2017年9月，他们甚至加入了开源计划。这些天，微软在开放许可下发布了很多代码。微软的 John Gossman 描述了他们开源 .net 时发生的事情。起初，他们并不认为自己能得到多少回报。</p>
+<hr>
+<p>John Gossman:</p>
+<p>[00:22:00]</p>
+<p>We didn’t count on contributions from the community, and yet, three years in, over 50 per cent of the contributions to the .net framework libraries, now, are coming from outside of Microsoft. This includes big pieces of code. Samsung has contributed ARM support to .net. Intel and ARM and a couple other chip people have contributed code generation specific for their processors to the .net framework, as well as a surprising number of fixes, performance improvements ,  and stuff — from just individual contributors to the community.</p>
+<p>直到几年前，我们今天拥有的这个开放的微软，这个开放的微软，会是不可想象的。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>Up until a few years ago, the Microsoft we have today, this open Microsoft, would have been unthinkable.</p>
+<p>直到几年前，我们今天拥有的微软（这个开放的微软）还无法想象。</p>
+<hr>
+<p>[00:22:30]</p>
+<p>[00:23:00]</p>
+<p>I’m Saron Yitbarek, and this is Command Line Heroes. Okay, we’ve seen titanic battles for the love of millions of desktop users. We’ve seen open source software creep up behind the proprietary titans, and nab huge market share. We’ve seen fleets of command line heroes transform the programming landscape into the one handed down to people like me and you. Today, big business is absorbing open source software, and through it all, everybody is still borrowing from everybody.</p>
+<p>我是Saron Yitbarek，这是Command Line Heroes。好的，我们已经为数百万台式机用户的热爱而展开了激烈的战斗。我们已经看到开放源代码软件在专利泰坦之后逐渐发展，并获得了巨大的市场份额。我们已经看到许多命令行英雄将编程领域转变成一个像我和你这样的人。如今，大企业正在吸收开源软件，通过这一切，每个人仍在向每个人借用。</p>
+<hr>
+<p>[00:23:30]</p>
+<p>In the tech wild west, it’s always been that way. Apple gets inspired by Xerox, Microsoft gets inspired by Apple, Linux gets inspired by UNIX. Evolve, borrow, constantly grow. In David and Goliath terms, open source software is no longer a David, but, you know what? It’s not even Goliath, either. Open source has transcended. It’s become the battlefield that others fight on. As the open source approach becomes inevitable, new wars, wars that are fought in the cloud, wars that are fought on the open source battlefield, are ramping up.</p>
+<p>在科技界的西部，一直以来都是这样。苹果的灵感来自施乐，微软的灵感来自苹果，Linux 的灵感来自 UNIX 。演进、借鉴、借鉴、不断成长。用大卫和歌利亚的话来说，开源软件不再是大卫，但是，你知道吗？它也不是歌利亚，甚至不是歌利亚。开源软件已经超越了。它已经成为了别人争夺的战场。随着开源的方式变得不可避免，新的战争，在云端打的战争，在开源战场上打的战争，新的战争正在节节攀升。 </p>
+<hr>
+<p>Here’s author Steven Levy.</p>
+<p>这里是作家 Steven Levy.</p>
+<p>Steven Levy:</p>
+<p>[00:24:00]</p>
+<p>Basically, right now, we have four or five companies, if you count Microsoft, that in various ways are fighting to be the platform for all we do, for artificial intelligence, say. You see wars between intelligent assistants, and guess what? Apple has an intelligent assistant, Siri. Microsoft has one, Cortana. Google has the Google Assistant. Samsung has an intelligent assistant. Amazon has one, Alexa. We see these battles shifting to different areas, there. Maybe, you could say, the hottest one is would be, whose AI platform is going to control all the stuff in our lives there, and those five companies are all competing for that.</p>
+<p>基本上，到现在为止，我们有四，五家公司（如果算上微软），它们正在以各种方式争取成为我们所做的一切平台，例如人工智能。您看到了智能助手之间的战争，您猜怎么着？苹果有一个智能助手 Siri 。微软有一个，Cortana 。谷歌有谷歌助手。三星有一个智能助手。亚马逊有一个 Alexa 。我们看到这些战斗转移到那里的不同地区。也许您可以说，最热门的应该是它的 AI 平台将控制我们那里生活中的所有事物，而这五家公司都在为此竞争。[00:24:30]</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>If you’re looking for another rebel that’s going to sneak up behind Facebook or Google or Amazon and blindside them the way Linux blindsided Microsoft, you might be looking a long time, because as author James Allworth points out, being a true rebel is only getting harder and harder.</p>
+<p>如果你正在寻找另一个能在 Facebook 或谷歌或亚马逊背后偷偷摸摸的反叛者，并像 Linux 让微软蒙混过关一样让他们蒙混过关，那么你可能要找很久了，因为正如作者 James Allworth 所指出的那样，做一个真正的反叛者只会越来越难。</p>
+<hr>
+<p>James Allworth:</p>
+<p>[00:25:00]</p>
+<p>[00:25:30]</p>
+<p>Scale’s always been an advantage but the nature of scale advantages are almost … Whereas, I think previously they were more linear in nature, now it’s more exponential in nature, and so, once you start to get out in front with something like this ,  it becomes harder and harder for a new player to come in and catch up. I think this is true of the internet era in general, whether it’s scale like that or the importance and advantages that data bestow on an organization in terms of its ability to compete. Once you get out in front, you attract more customers, and then that gives you more data and that enables you to do an even better job, and then, why on earth would you want to go with the number two player, because they’re so far behind? I think it’s going to be no different in cloud.</p>
+<p>规模优势一直是个优势，但规模优势的本质几乎是…… 而我认为，以前是线性的，现在是指数型的，所以，一旦你开始在这样的事情上领先，新的玩家就会越来越难赶上。我认为互联网时代一般来说也是如此，无论是规模这样的规模，还是数据对一个组织的竞争能力的重要性和优势。一旦你走在了前面，你就会吸引更多的客户，然后这就会给你带来更多的数据，这就使得你能够做得更好，然后，你到底为什么要和第二名的玩家一起走，因为他们已经落后了这么多了。我想在云计算方面也不会有什么不同。</p>
+<hr>
+<p>Saron Yitbarek:</p>
+<p>[00:26:00]</p>
+<p>This story began with singular heroes like Steve Jobs and Bill Gates, but the progress of technology has taken on a crowdsourced, organic feel. I think it’s telling that our open source hero, Linus Torvalds, didn’t even have a real plan when he first invented the Linux kernel. He was a brilliant ,  young developer for sure, but he was also like a single drop of water at the very front of a tidal wave. The revolution was inevitable. It’s been estimated that for a proprietary company to create a Linux distribution in their old - fashioned ,  proprietary way, it would cost them well over $ 10 billion. That points to the power of open source.</p>
+<p>这个故事从史蒂夫-乔布斯和比尔-盖茨这样的奇葩英雄开始，但技术的进步却给人一种众筹的、有机的感觉。我觉得很有道理，我们的开源英雄 Linus Torvalds 在发明 Linux 内核的时候甚至没有真正的计划。他无疑是一个出色的年轻开发者，但他也像一滴水一样，站在浪潮的最前端。这场革命是不可避免的。据估计，如果一个专有的公司用他们老式的专有方式来创建一个 Linux 发行版，将花费超过100亿美元。这说明了开源的力量。</p>
+<hr>
+<p>[00:26:30]</p>
+<p>In the end, it’s not something that a proprietary model is going to compete with. Successful companies have to remain open. That’s the big, ultimate lesson in all this. Something else to keep in mind: W hen we’re wired together, our capacity to grow and build on what we’ve already accomplished becomes limitless. As big as these companies get, we don’t have to sit around waiting for them to give us something better. Think about the new developer who learns to code for the sheer joy of creating, the mom who decides that if nobody’s going to build what she needs, then she’ll build it herself.</p>
+<p>归根结底，这不是一个专有模式可以抗衡的。<strong>成功的公司必须保持开放性。这就是这一切的最大、最终的教训。</strong>还有一点要记住。当我们在一起的时候，我们的成长和发展能力就会变得无限大。这些公司做得再大，我们也不必坐等他们给我们更好的东西。想一想，新的开发者为了纯粹的创作乐趣而学习代码，想一想，如果没有人去做她需要的东西，那她就自己去做。</p>
+<hr>
+<p>Wherever tomorrow’s great programmers come from, they’re always going to have the capacity to build the next big thing, so long as there’s access to the command line.</p>
+<p>无论明天的伟大程序员来自哪里，只要有机会接触到命令行，他们总是有能力打造出下一个庞然大物。</p>
+<hr>
+<p>[00:27:00]</p>
+<p>[00:27:30]</p>
+<p>That’s it for our two - part tale on the OS wars that shaped our digital lives. The struggle for dominance moved from the desktop to the server room, and ultimately into the cloud. Old enemies became unlikely allies, and a crowdsourced future left everything open . Listen, I know, there are a hundred other heroes we didn’t have space for in this history trip, so drop us a line. Share your story. Redhat.com/commandlineheroes. I’m listening.</p>
+<p>我们的两部曲–关于操作系统战争的故事就到此结束，这场战争塑造了我们的数字生活。争夺主导权的斗争从桌面到服务器机房，最终进入了云端。旧有的敌人变成了不可能的盟友，而众包的未来则让一切都变得开放。听着，我知道，在这段历史之旅中，我们还有上百位英雄人物，我们没有足够的篇幅来介绍，请给我们留言。分享一下你的故事吧。Redhat.com/commandlineheroes。我在听着呢。</p>
+<hr>
+<p>We’re spending the rest of the season learning what today’s heroes are creating, and what battles they’re going through to bring their creations to life. Come back for more tales — from the epic front lines of programming. We drop a new episode every two weeks. In a couple weeks’ time, we bring you episode three: the Agile Revolution.</p>
+<p>我们将在这一季的余下时间里，了解今天的英雄们都在创造什么，以及他们为了把自己的创作变成现实而进行的战斗。欢迎回来看更多的故事–来自史诗级的前线节目。我们每隔两周就会推出一集新节目。几周后，我们将为您带来第三集：敏捷革命。</p>
+<hr>
+<p>[00:28:00]</p>
+<p>Command Line Heroes is an original podcast from Red Hat. To get new episodes delivered automatically for free, make sure to subscribe to the show. Just search for “ Command Line Heroes ”  in Apple podcasts , Spotify, Google Play, and pretty much everywhere else you can find podcasts. Then, hit “ subscribe ”  so you will be the first to know when new episodes are available.</p>
+<p>《命令行英雄》是红帽公司的原创播客。要想免费获得新的播客节目，请务必订阅该节目。只需在Apple podcasts、Spotify、Google Play和其他几乎所有你能找到的播客中搜索 “Command Line Heroes “即可。然后，点击 “订阅”，你会在第一时间知道有新的节目。</p>
+<p>I’m Saron Yitbarek. Thanks for listening. Keep on coding</p>
+<p>我是Saron Yitbarek。感谢收听。继续coding。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Command-Line-Heros/" rel="tag"># Command Line Heros</a>
+              <a href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag"># 翻译</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Command%20Line%20Heros%20%E6%92%AD%E5%AE%A2%E7%A8%BF%20OS%20Wars_part1/" rel="prev" title="Command Line Heroes 播客稿 OS Wars_part1 操作系统战争 part 1">
+      <i class="fa fa-chevron-left"></i> Command Line Heroes 播客稿 OS Wars_part1 操作系统战争 part 1
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://nanka-life.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://nanka.life/Command-Line-Heros-%E6%92%AD%E5%AE%A2%E7%A8%BF-OS-WAR-part2/";
+    this.page.identifier = "Command-Line-Heros-播客稿-OS-WAR-part2/";
+    this.page.title = "Command Line Heroes 播客稿 OS Wars_part1 操作系统战争 part 2";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nanka-life.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
